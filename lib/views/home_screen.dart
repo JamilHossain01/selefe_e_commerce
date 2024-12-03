@@ -18,6 +18,7 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: Obx(() {
         // Listen to the selected index changes for the BottomNavigationBar
         return BottomNavigationBar(
+          backgroundColor: Colors.teal,
           currentIndex: controller.selectedIndex.value,
           onTap: controller.onItemTapped,
           items: const [

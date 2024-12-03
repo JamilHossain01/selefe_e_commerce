@@ -11,7 +11,13 @@ class CategoryListScreen extends StatelessWidget {
     final controller = Get.put(CategoryController());
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Categories')),
+      appBar: AppBar(
+          backgroundColor: Colors.teal, // Change this to your desired color
+          elevation: 4,
+          title: const Text(
+            'Categories',
+            style: TextStyle(color: Colors.white),
+          )),
       body: Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
