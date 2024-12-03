@@ -19,19 +19,32 @@ class ProductCard extends StatelessWidget {
               product.image,
               fit: BoxFit.cover,
               width: double.infinity,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) {
+                  return child; // Image loaded successfully
+                }
+                return const Center(
+                  child: CircularProgressIndicator(), // Placeholder
+                );
+              },
               errorBuilder: (_, __, ___) =>
                   const Center(child: Icon(Icons.broken_image, size: 50)),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(product.title,
-                maxLines: 2, overflow: TextOverflow.ellipsis),
+            child: Text(
+              product.title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text('\$${product.price.toStringAsFixed(2)}',
-                style: const TextStyle(fontWeight: FontWeight.bold)),
+            child: Text(
+              '\$${product.price.toStringAsFixed(2)}',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),

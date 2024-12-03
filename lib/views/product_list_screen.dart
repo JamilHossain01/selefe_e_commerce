@@ -12,22 +12,14 @@ class ProductListScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Products',
-          style:
-              TextStyle(color: Colors.white), // Ensures text color stands out
-        ),
+        title: const Text('Products'),
         actions: [
           IconButton(
             icon: Obx(() => Icon(
-                  controller.isGridView.value ? Icons.list : Icons.grid_view,
-                  color: Colors.white, // Makes the icon match the theme
-                )),
+                controller.isGridView.value ? Icons.list : Icons.grid_view)),
             onPressed: () => controller.isGridView.toggle(),
           ),
         ],
-        backgroundColor: Colors.teal, // Change this to your desired color
-        elevation: 4, // Adds slight shadow for a more polished look
       ),
       body: Obx(() {
         if (controller.isLoading.value && controller.products.isEmpty) {

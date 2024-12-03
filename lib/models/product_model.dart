@@ -1,11 +1,11 @@
 class ProductModel {
-  final int id;
+  final int? id;
   final String title;
   final double price;
   final String image;
 
   ProductModel({
-    required this.id,
+    this.id,
     required this.title,
     required this.price,
     required this.image,
